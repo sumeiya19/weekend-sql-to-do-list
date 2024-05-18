@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS "todos";
+DROP TABLE IF EXISTS "todos";T
 
 CREATE TABLE "todos" (
 	"id" SERIAL PRIMARY KEY,
@@ -7,7 +7,7 @@ CREATE TABLE "todos" (
 );
 
 INSERT INTO "todos"
-  ("text")
+  ("text", "isComplete")
   VALUES 
-  ('Build a CRUD app'),
-  ('Make my app look nice');
+  ('Build a CRUD app', 'N'),
+  ('Make my app look nice', 'N');

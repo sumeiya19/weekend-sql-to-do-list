@@ -3,7 +3,7 @@ const app = express();
 
 const todos = require('./routes/todos.router.js');
 
-let PORT = process.env.PORT || 5001;
+let PORT = process.env.PORT || 5000;
 
 // Do not modify this!
 if (process.env.NODE_ENV == 'test') {
@@ -12,6 +12,7 @@ if (process.env.NODE_ENV == 'test') {
 
 app.use(express.static('./server/public'));
 app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 
 app.use('/todos', todos);
 
