@@ -7,7 +7,7 @@ CREATE TABLE "todos" (
 );
 
 INSERT INTO "todos"
-  ("text", "isComplete")
+  ("text")
   VALUES 
-  ('Build a CRUD app', 'N'),
-  ('Make my app look nice', 'N');
+  ('Build a CRUD app'),
+  ('Make my app look nice');
