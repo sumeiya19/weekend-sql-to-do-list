@@ -45,7 +45,7 @@ function addTask(taskToAdd){
           <tr>
           <td>${task.text}</td>  
           <td>${task.isComplete}</td>
-          <td><button onClick="isComplete(${task.id})">Complete</button></td>
+          <td><button onClick="isComplete(${task.id}, true)">Complete</button></td>
           <td><button onClick="deleteTask(${task.id})">Delete</button></td>
           </tr>
         `;
@@ -65,12 +65,14 @@ function submitTask(event){
     task.text = document.getElementById("taskIn").value = '';
 }
 
+let isReady;
+
 function isComplete(taskId, isReady){
 console.log("Changing status of...", taskId, isReady);
 axios({
     method: "PUT",
     url: "/todos/complete/" + taskId,
-    data: {isComplete: isReady}
+    data: {isComplete: isReady} 
    })
    .then((response) => {
     getTask()

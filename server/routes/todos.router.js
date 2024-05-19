@@ -49,9 +49,11 @@ todosRouter.post('/', (req, res) => {
 todosRouter.put('/complete/:id', (req, res)=>{
     let taskId = req.params.id
     let isReady = req.body.isComplete
-    // console.log("req.body", req.body)
-// console.log("is ready?" , isReady)
-// console.log("koala id", koalaId)
+
+    console.log("req.body", req.body)
+    console.log("is ready?" , isReady)
+    console.log("task id", taskId)
+
     let queryText = ''
 
     if (isReady === true){
@@ -67,9 +69,10 @@ todosRouter.put('/complete/:id', (req, res)=>{
         `;
     }    
     else {
-        res.sendStatus(500)
-        console.error('Trouble marking as ready')
+        console.error('Trouble marking as complete');
+        res.send(500); // Return early to prevent further execution
     }
+    
 
     pool.query(queryText, [taskId])
         .then(()=>{
